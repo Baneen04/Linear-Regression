@@ -1,0 +1,55 @@
+import numpy as np
+import pandas as pd
+from sklearn import linear_model
+from matplotlib import pyplot as plt
+
+df=pd.read_csv('/content/drive/MyDrive/Semester projects/Semester 5/Semester 5 AI/AI Lab 3/Weight_height.csv')
+df
+
+""" Linear Equation
+       y=mx+c
+y----> independant variable
+x----> Dependant Variable
+m----> Slope/Coefficient
+c----> y-Intercept
+"""
+
+plt.xlabel('Weight')
+plt.ylabel('Height')
+plt.scatter(df.Weight,df.Height,color='Blue',marker="+")
+
+x=df['Height'].values.reshape(-1, 1)
+y=df['Weight']
+
+reg = linear_model.LinearRegression()
+reg.fit(x,y)
+
+new_y=167
+reg.predict([[new_y]])
+
+reg.coef_
+
+reg.intercept_
+
+4.65335463*167+(-140.37859)
+
+#Multi Values
+
+df=pd.read_csv('/content/drive/MyDrive/Semester projects/Semester 5/Semester 5 AI/AI Lab 3/Weight_height_2 - Weight_height.csv')
+df
+
+x=df[['Weight','Age','BM1']]
+y=df.Height
+x
+
+reg = linear_model.LinearRegression()
+reg.fit(x,y)
+
+reg.coef_
+
+reg.intercept_
+
+
+reg.predict([[167,21,8]])
+
+167*0.20900727+ 21* -0.31690971+ 8*0.56130216+ 33.3283462
